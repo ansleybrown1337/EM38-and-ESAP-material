@@ -1,0 +1,3 @@
+ESAP-RSSD:
+- files need to be in actual CSV format not UTF-8 CSV encoding
+- XY data need to be in E and N meters (i.e., UTM coordinates), not decimal degrees

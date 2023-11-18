@@ -1,0 +1,52 @@
+Calibration Modeling Results:  Field Summary Statistics
+  
+  
+Profile Data File:   C:\Users\ansleybr\Downloads\ESAP.csv
+Survey Data File:    C:\ESAP\data\DA784\1234data.svy
+Analysis Date/Time:  7/11/2018 5:08:11 PM 
+  
+Field ID Code:       1234
+Survey File Type:    Transect
+Response Variable:   ECe
+Response Type:       Salinity
+  
+# of Survey Sites:   2198 
+# of Sample Sites:   12
+# of free df's:      9 
+  
+MLR Model Form:
+ECe  =  b0 + b1(z1) + b2(z1^2)
+  
+  
+  
+I.   Field Average Point Estimates [ECe]
+   
+     depth              mean       variance      95% Confidence Interval
+   
+      0.15           1.33181        0.12032      0.547 to 2.116
+      0.45           1.81865        0.11802      1.042 to 2.596
+      0.75           1.79744        0.09392      1.104 to 2.491
+   average           1.64930        0.09890      0.938 to 2.361
+   
+   
+II.  Field Range Interval Estimates
+   
+     depth          range 1   range 2   range 3   range 4   range 5  
+  
+      0.15            51.55     32.81     10.26      3.35      2.02  
+      0.45            40.85     37.07     14.18      5.51      2.38  
+      0.75            39.13     39.39     14.50      5.25      1.74  
+   average            43.88     37.13     12.50      4.45      2.03  
+  
+     range[ 1]:  < 1.000
+     range[ 2]:  1.000 to 3.000
+     range[ 3]:  3.000 to 5.000
+     range[ 4]:  5.000 to 8.000
+     range[ 5]:  > 8.000
+   
+   
+   
+Notes:
+   
+ (1)  8792 predictions generated...
+   

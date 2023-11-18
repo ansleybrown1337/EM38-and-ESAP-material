@@ -1,0 +1,37 @@
+Yield Loss Estimation Results:  Field Summary Statistics
+  
+  
+Profile Data File:   C:\Users\ansleybr\Downloads\ESAP.csv
+Survey Data File:    C:\ESAP\data\DA784\1234data.svy
+Analysis Date/Time:  7/11/2018 5:22:41 PM 
+  
+Field ID Code:       1234
+Survey File Type:    Transect
+Response Variable:   ECe
+Response Type:       Yield Loss Statistics
+  
+# of Survey Sites:   2198 
+  
+  
+  
+ 1. Field Average Yield Loss Statistics
+  
+                             Expected       Corresponding
+    Crop                     Yield Loss     Yield
+  
+    wheat                    0.90           99.10
+    corn                     7.07           92.93
+  
+  
+ 2. Yield Loss Calculation Details
+  
+    Crop                     Threshold      Slope
+  
+    wheat                    6.00           7.10
+    corn                     1.70           12.00
+  
+                             Depth Weighting Factors
+  
+    wheat                    0.3330  0.3330  0.3330
+    corn                     0.3330  0.3330  0.3330
+  

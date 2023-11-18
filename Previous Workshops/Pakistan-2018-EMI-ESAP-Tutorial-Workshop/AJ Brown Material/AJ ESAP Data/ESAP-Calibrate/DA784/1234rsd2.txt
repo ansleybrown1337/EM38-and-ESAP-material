@@ -1,0 +1,49 @@
+Full Path:    C:\Program Files\USDA\esap2\data\DA784\1234rsd2.txt
+Project:      DA784
+File Name:    1234rsd2.txt
+   
+Date & Time:  4/29/2018 1:04:18 AM
+Field Desc:   
+   
+Sample Size:  12   (Total Survey Size =  2198   Active Survey Size =  1621)
+D-Factor Val: 1.20
+Opt-Criteria: 1.33
+Loop Count:   7
+   
+Parsing Algorithm Empolyed:  forced data stratification using Strata # 3 
+   
+   
+Target Information for SRS Sampling Design # 2
+   
+  Site ID     Design Levels   Ds1-STD  Ds2-STD   X-Coordinate   Y-Coordinate 
+   
+   1492        0.9     0       0.79     0.22      620300.295     4201692.607 
+   505         2.1     2.1     2.06     2.05      620216.874     4201976.167 
+   1337       -2.1    -2.1    -1.62    -1.13      620011.382     4201754.02 
+   126         2.1    -2.1    -0.29    -1.5       620424.092     4202071.857 
+   2080       -2.1     2.1    -1.25     0.17      620343.861     4201531.19 
+   703         3       0       1.43     0.87      620073.683     4201912.156 
+   1029       -3       0      -1.48    -0.04      620406.242     4201817.955 
+   1099        0       3       1.53     1.46      620103.915     4201816.533 
+   1787        0      -3      -0.57    -1.37      619987.617     4201593.645 
+   2038       -0.9     0      -0.78    -0.14      620161.492     4201530.222 
+   220        support site     0.2     -0.13      620039.573     4202070.049 
+   596        support site     0.23    -0.23      620343.674     4201944.199 
+   
+   
+Ordered Listing of Sample Sites
+   
+  Sample #    Site ID   Row #
+   
+     1         126       2 
+     2         220       2 
+     3         505       5 
+     4         596       6 
+     5         703       7 
+     6         1029      10 
+     7         1099      10 
+     8         1337      12 
+     9         1492      14 
+     10        1787      17 
+     11        2038      19 
+     12        2080      19 

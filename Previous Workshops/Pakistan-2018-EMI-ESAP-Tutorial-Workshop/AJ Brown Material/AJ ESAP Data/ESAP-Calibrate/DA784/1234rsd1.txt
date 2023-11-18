@@ -1,0 +1,47 @@
+Full Path:    C:\Program Files\USDA\esap2\data\DA784\1234rsd1.txt
+Project:      DA784
+File Name:    1234rsd1.txt
+   
+Date & Time:  4/29/2018 1:00:07 AM
+Field Desc:   
+   
+Sample Size:  12   (Total Survey Size =  2198   Active Survey Size =  1633)
+D-Factor Val: 0.80
+Opt-Criteria: 1.40
+Loop Count:   7
+   
+   
+Target Information for SRS Sampling Design # 1
+   
+  Site ID     Design Levels   Ds1-STD  Ds2-STD   X-Coordinate   Y-Coordinate 
+   
+   730         0.6     0       0.63     0         620194.133     4201912.872 
+   403         1.4     1.4     1.48     1.4       620183.828     4202007.598 
+   1338       -1.4    -1.4    -1.28    -1.18      620006.941     4201754.433 
+   807         1.4    -1.4     0.34    -0.39      620377.924     4201882.046 
+   2071       -1.4     1.4    -2.03     1         620305.795     4201530.879 
+   709         2       0       1.21     0.56      620100.64      4201912.588 
+   1990       -2       0      -1.97    -0.08      619974.569     4201530.807 
+   254         0       2       0.99     0.97      620096.639     4202037.552 
+   125         0      -2      -0.27    -1.4       620424.465     4202071.846 
+   1205       -0.6     0      -0.42    -0.09      620270.063     4201787.501 
+   1819       support site     0.12    -0.25      620132.83      4201594.265 
+   1176       support site     0.1     -0.18      620132.314     4201786.146 
+   
+   
+Ordered Listing of Sample Sites
+   
+  Sample #    Site ID   Row #
+   
+     1         125       2 
+     2         254       3 
+     3         403       4 
+     4         709       7 
+     5         730       7 
+     6         807       8 
+     7         1176      11 
+     8         1205      11 
+     9         1338      12 
+     10        1819      17 
+     11        1990      19 
+     12        2071      19 

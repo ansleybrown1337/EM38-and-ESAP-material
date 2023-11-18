@@ -1,0 +1,111 @@
+Calibration Modeling Results:  MLR Analysis and Statistics
+  
+  
+Profile Data File:   C:\Users\ansleybr\Downloads\ESAP.csv
+Survey Data File:    C:\ESAP\data\DA784\1234data.svy
+Analysis Date/Time:  7/11/2018 4:44:42 PM 
+  
+Field ID Code:       1234
+Survey File Type:    Transect
+Response Variable:   ECe
+  
+MLR Model Form:
+ECe  =  b0 + b1(z1) + b2(z1^2)
+  
+  
+Basic Regression Summary Statistics
+  
+    Depth      R-square      Root MSE       Est.%CV
+     0.15       0.7777        1.1412          n/a
+     0.45       0.8279        1.1303          n/a
+     0.75       0.8485        1.0083          n/a
+     bulk       0.8349        1.0347          n/a
+  
+  
+  
+AOV Table and Parameter Estimates for depth: 0.15
+  
+  Source           DF         SS              MS       F value   Prob >F
+  
+  Model             2    41.0054         20.5027         15.74    0.0012
+  Error             9    11.7220          1.3024
+  C-Total          11    52.7274
+ 
+  model R-square =        0.7777
+  root MSE =              1.1412
+ 
+  press score =           25.380
+ 
+                                 Standard     t value
+  Parameter        Estimate         Error      para=0    Prob >|t|
+  
+  intercept          0.4374        0.5011        0.87       0.4054
+  z1                 0.9874        0.2918        3.38       0.0081
+  z1^2               0.8948        0.2720        3.29       0.0094
+  
+  
+AOV Table and Parameter Estimates for depth: 0.45
+  
+  Source           DF         SS              MS       F value   Prob >F
+  
+  Model             2    55.2938         27.6469         21.64    0.0004
+  Error             9    11.4979          1.2775
+  C-Total          11    66.7917
+ 
+  model R-square =        0.8279
+  root MSE =              1.1303
+ 
+  press score =           18.370
+ 
+                                 Standard     t value
+  Parameter        Estimate         Error      para=0    Prob >|t|
+  
+  intercept          0.9251        0.4963        1.86       0.0952
+  z1                 1.2892        0.2890        4.46       0.0016
+  z1^2               0.8939        0.2694        3.32       0.0090
+  
+  
+AOV Table and Parameter Estimates for depth: 0.75
+  
+  Source           DF         SS              MS       F value   Prob >F
+  
+  Model             2    51.2478         25.6239         25.20    0.0002
+  Error             9     9.1501          1.0167
+  C-Total          11    60.3979
+ 
+  model R-square =        0.8485
+  root MSE =              1.0083
+ 
+  press score =           15.158
+ 
+                                 Standard     t value
+  Parameter        Estimate         Error      para=0    Prob >|t|
+  
+  intercept          1.0637        0.4427        2.40       0.0397
+  z1                 1.3496        0.2578        5.23       0.0005
+  z1^2               0.7341        0.2403        3.05       0.0137
+  
+  
+AOV Table and Parameter Estimates for bulk average model
+  
+  Source           DF         SS              MS       F value   Prob >F
+  
+  Model             2    48.7322         24.3661         22.76    0.0003
+  Error             9     9.6353          1.0706
+  C-Total          11    58.3675
+ 
+  model R-square =        0.8349
+  root MSE =              1.0347
+ 
+  press score =           16.367
+ 
+                                 Standard     t value
+  Parameter        Estimate         Error      para=0    Prob >|t|
+  
+  intercept          0.8088        0.4543        1.78       0.1088
+  z1                 1.2087        0.2646        4.57       0.0013
+  z1^2               0.8409        0.2466        3.41       0.0078
+  
+  
+Note: all trend surface parameters shown above (if any) have been estimated
+using centered and scaled location coordinate data...

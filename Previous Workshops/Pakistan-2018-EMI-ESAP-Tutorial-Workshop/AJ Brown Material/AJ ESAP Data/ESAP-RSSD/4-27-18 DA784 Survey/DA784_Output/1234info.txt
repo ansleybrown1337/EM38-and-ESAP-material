@@ -1,0 +1,43 @@
+Input File:   E:\DA784_Transect.csv
+   
+Output File:  C:\Program Files\USDA\esap2\data\DA784\1234info.txt
+Project:      DA784
+O-File Name:  1234info.txt
+   
+Date & Time:  4/29/2018 12:58:40 AM
+Field Desc:   
+   
+FieldID Code:    1234
+File Type:       Transect  (rowcount = 20)
+Survey Size:     2198 
+# of Signals:    2 
+Signal Units:    mS/m
+Sig Trnsfrm:     natural log
+   
+   
+   
+Signal Statistics
+   
+                   log(EMv)            log(EMh)
+   
+   N                2198                2198
+   Mean            3.677               1.979
+   Std             0.262               1.820
+   Min             2.972              -9.210
+   Max             4.665               4.103
+   
+   Signal Corr =   0.6068
+   
+   
+Decorrelation Statistics
+   
+                             Level     # Sites > Level
+   Masking STD               3.50            48
+   Outlier STD               4.50            44
+   
+   Total # of deleted sites:           0
+   # of Validation iterations:         0
+   
+   
+Edge Buffering:          invoked
+Transition Analysis:     none

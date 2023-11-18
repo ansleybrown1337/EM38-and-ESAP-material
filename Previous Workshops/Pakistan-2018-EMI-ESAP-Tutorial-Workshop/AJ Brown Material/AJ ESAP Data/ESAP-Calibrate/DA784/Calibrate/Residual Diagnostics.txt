@@ -1,0 +1,74 @@
+Calibration Modeling Results:  MLR Residual Diagnostics
+  
+  
+Profile Data File:   C:\Users\ansleybr\Downloads\ESAP.csv
+Survey Data File:    C:\ESAP\data\DA784\1234data.svy
+Analysis Date/Time:  7/11/2018 4:52:12 PM 
+  
+Field ID Code:       1234
+Survey File Type:    Transect
+Response Variable:   ECe
+  
+MLR Model Form:
+ECe  =  b0 + b1(z1) + b2(z1^2)
+  
+  
+  
+I.   Univariate R-student residual summary statistics
+  
+     depth                n         mean     std.dev         min         max
+  
+      0.15               12       -0.148       1.640      -4.833       1.764
+      0.45               12        0.018       1.188      -1.987       2.584
+      0.75               12        0.049       1.303      -1.895       3.361
+   average               12       -0.022       1.215      -2.652       2.267
+  
+  
+II.  Depth specific R-student HAT leverage [h(ii)] and residual values
+  
+                        Sample Depths
+   site-ID     h(ii)    0.15    0.45    0.75     ave
+  
+       126    0.1727   0.458   0.196   0.273   0.328 
+       220    0.1983   0.553   1.347   0.596   0.870 
+       505    0.6047   1.764   0.059  -0.063   0.562 
+       596    0.1985  -0.051  -0.224  -0.097  -0.131 
+       703    0.2050  -4.833  -1.680  -1.895  -2.652 
+      1029    0.3123  -0.107  -0.214   0.012  -0.113 
+      1099    0.2328   1.082   2.584   3.361   2.267 
+      1337    0.4128  -0.794  -0.249  -0.711  -0.609 
+      1492    0.1771  -0.821  -1.987  -1.628  -1.522 
+      1787    0.1488   0.417   0.063   0.166   0.229 
+      2038    0.1378   0.452   0.191   0.159   0.287 
+      2080    0.1991   0.103   0.132   0.409   0.218 
+  
+  
+III. Depth specific ordinary residual correlation matrix
+  
+     Sample Depths:
+  
+     1       0.15
+     2       0.45
+     3       0.75
+     4    average
+  
+         1       2       3       4   
+     1   1.000   0.777   0.804   0.912
+     2   0.777   1.000   0.958   0.961
+     3   0.804   0.958   1.000   0.969
+     4   0.912   0.961   0.969   1.000
+  
+  
+IV.  Moran residual spatial autocorrelation test results
+     (probability levels based on normalized t-tests)
+  
+       E[Im] =  -0.08886
+     Var[Im] =   0.01197
+  
+     depth                Im            t-score     Prob > t
+  
+      0.15             -0.2899           -1.838       0.9504
+      0.45             -0.2874           -1.815       0.9485
+      0.75             -0.3629           -2.505       0.9832
+   average             -0.3546           -2.429       0.9810
+  
