@@ -45,6 +45,9 @@ This repository contains training materials, examples, and installation guides f
 
 ## License
 
+![Creative Commons License](https://i.creativecommons.org/l/by-nc/4.0/88x31.png)
+
+
 The content and materials developed by A.J. Brown in this repository are licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License](https://creativecommons.org/licenses/by-nc/4.0/). In summary, contents are intended for educational purposes only and cannot be used for commercial purposes.
 
 Note: The EM38 and ESAP software are included under their respective licenses. Please refer to their respective directories for license details.
