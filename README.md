@@ -1,4 +1,3 @@
-Insert banner figure
 ![EMI Techniques Banner](./EMI_banner.png)
 
 
