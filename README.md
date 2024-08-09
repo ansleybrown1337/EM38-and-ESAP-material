@@ -1,8 +1,12 @@
-# Electromagnetic Induction Techniques, EM38 Usage, and ESAP Software Suite Repository
+Insert banner figure
+![EMI Techniques Banner](./EMI_banner.png)
 
-Welcome to the electromagnetic induction (EMI) technique repository created by A.J. Brown.
 
 Here I provide the materials to give you an overview of EMI methods and their applications in agriculture, specifically for characteriing soil salinity as electrical conductivity (EC). We also provide a comprehensive guide to the Electromagnetic Sampling Analysis and Prediction Model (ESAP) developed by the USDA. 
+
+For any questions, please contact me at: [ansley.brown@colostate.edu](mailto:ansley.brown@colostate.edu)
+
+-AJ
 
 ## Contents
 
