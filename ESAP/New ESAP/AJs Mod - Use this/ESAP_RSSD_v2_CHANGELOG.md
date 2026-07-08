@@ -221,3 +221,33 @@ This document compares `Sensor_Directed_Sampling.ipynb`, `AJ_Copy_of_Sensor_Dire
 **New behavior:** An interactive geographic preview appears immediately after X/Y selection. Final output includes labeled selected-site maps plus side-by-side boxplots for standardized PCs and original sensor features.
 
 **Statistical or computational rationale:** These plots improve quality control and interpretation while remaining diagnostics rather than optimization objectives.
+
+## 23. Upload status, progress milestones, and native fallback added
+
+**Old behavior:** Selecting a file changed the widget state silently, and parsing occurred inside a button callback without a persistent status indicator. Browser-specific widget failures could therefore look like a stalled notebook.
+
+**Problem:** Users could not distinguish an unselected file, a completed browser transfer, dataframe parsing, a successful load, or a load error.
+
+**New behavior:** File selection immediately reports filename and size. A visible progress widget marks receipt, parsing, validation, success, and failure; successful loads report row/column counts and display a preview. A separate direct Colab upload cell is available when widget callbacks do not respond.
+
+**Statistical or computational rationale:** This change does not affect analysis but makes the provenance and state of the actual input dataframe observable before configuration begins. The progress bar is milestone-based because the standard widget does not expose byte-level streaming progress to Python.
+
+## 24. Two-dimensional response-surface preview clarified
+
+**Old behavior:** The component selector could remain at one, producing a scientifically correct but visually unexpected PC1 line even when multiple features were available.
+
+**Problem:** Users expected the familiar PC1-versus-PC2 response-surface scatter and could not tell why the view was one-dimensional.
+
+**New behavior:** PCA preview defaults to two design PCs whenever at least two features exist. The interface explicitly explains one- versus two-dimensional modes. The two-dimensional preview adds the empirical radius and candidate-tolerance rings around CCD target crosses.
+
+**Statistical or computational rationale:** Plot dimensionality now follows the selected design dimensionality transparently; no artificial PC2 axis is invented for a genuinely one-PC design.
+
+## 25. Complete archival run bundle added
+
+**Old behavior:** Individual CSV, JSON, and Markdown outputs were written, but displayed figures and auxiliary diagnostic tables were not collected into one archival artifact.
+
+**Problem:** Reconstructing a run for manuscript preparation or later diagnosis required manually gathering files and screenshots.
+
+**New behavior:** A final opt-in cell creates and downloads a timestamped ZIP containing core outputs, exact settings, metadata, convergence history, validation tables, a manifest, and twelve high-resolution diagnostic figures.
+
+**Statistical or computational rationale:** A self-contained analysis record supports reproducibility, auditability, comparison among candidate designs, and later paper development without changing the site-selection algorithm.
