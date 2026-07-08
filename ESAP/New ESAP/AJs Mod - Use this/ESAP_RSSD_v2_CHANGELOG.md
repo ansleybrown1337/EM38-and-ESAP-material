@@ -251,3 +251,23 @@ This document compares `Sensor_Directed_Sampling.ipynb`, `AJ_Copy_of_Sensor_Dire
 **New behavior:** A final opt-in cell creates and downloads a timestamped ZIP containing core outputs, exact settings, metadata, convergence history, validation tables, a manifest, and twelve high-resolution diagnostic figures.
 
 **Statistical or computational rationale:** A self-contained analysis record supports reproducibility, auditability, comparison among candidate designs, and later paper development without changing the site-selection algorithm.
+
+## 26. Scientist-defined raw-data range filtering added
+
+**Old behavior:** All finite uploaded sensor readings entered transformation, PCA, and statistical outlier screening. Removing known invalid measurements required editing the source file or notebook code.
+
+**Problem:** Physically invalid values—such as negative EMI spikes over metal or vegetation-index values known to represent concrete or bare infrastructure—are domain exclusions, not statistical outliers. They can also invalidate later log transformations.
+
+**New behavior:** A dedicated pre-PCA cell supports multiple interactive column rules with optional lower/upper bounds, inclusive/exclusive comparisons, and nonfinite handling. It previews retained/dropped counts and sampled distributions before an explicit apply action. Applied rules use AND logic, alter only the working dataframe, and are recorded in metadata, the run summary, and JSON/CSV files in the ZIP bundle.
+
+**Statistical or computational rationale:** Domain-invalid measurements are removed before PCA geometry and chi-square screening are defined, keeping scientific validity filtering distinct from statistical outlier masking. Vectorized masks remain O(*N*) and are practical for large surveys.
+
+## 27. Responsive widget layout added
+
+**Old behavior:** Several controls were packed into fixed horizontal boxes. Colab's constrained output width could truncate dropdown and slider descriptions.
+
+**Problem:** Hidden label text made otherwise interactive settings ambiguous, particularly for coordinate, design, and optimizer controls.
+
+**New behavior:** Crowded controls use responsive grid layouts that automatically wrap according to available width. Description widths are set to their natural content size, and a small CSS rule permits long labels to wrap instead of being clipped.
+
+**Statistical or computational rationale:** This is a presentation-only change that improves parameter transparency without modifying saved values or analysis behavior.

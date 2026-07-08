@@ -23,6 +23,8 @@ All configured features are first converted to numeric finite values. Optional f
 
 Transformed features are centered and standardized with a `StandardScaler`. PCA is then fitted to the standardized feature matrix. Full PCA is used by default when the estimated working arrays fit within the configured safe fraction of available memory. Incremental PCA is available for genuinely memory-constrained runs.
 
+Before transformation or PCA, the interactive workflow optionally applies scientist-defined raw-data validity ranges. Each rule selects a column and optional finite lower and upper bounds, with inclusive or exclusive comparisons and configurable removal of missing/nonfinite values. Multiple rules are combined with logical AND. A preview reports retained and dropped counts and plots a bounded distribution sample; rows are removed only after explicit confirmation. This operation represents domain-based exclusion of measurements considered physically invalid or irrelevant, not statistical outlier detection. The uploaded source file is never modified, and every application, bound, and row count is preserved in metadata and the run bundle.
+
 PCA is used as a rotation and coding operation, not merely as a dimension-reduction heuristic. The configured number of design PCs must not exceed the number of usable sensor variables. The implementation records the variance explained by every fitted component and the analysis mode used.
 
 ## 4. Standardized or whitened PCA score space
@@ -125,11 +127,15 @@ Version 2 therefore does not calculate Moran's I and does not install PySAL or `
 
 The complete valid dataset is used by default. `float32` arrays store transformed features, coordinates, and design scores where their precision is adequate. Pandas copies are limited to validation and export structures. Full survey distance matrices and complete design combinations are absent.
 
+Raw-data range filtering is vectorized and stores an O(*N*) Boolean mask rather than pairwise structures. Diagnostic histograms use at most the configured display sample, even for million-row inputs. Applying a filter creates the retained working dataframe and releases the excluded working rows; rerunning the upload cell is required to restore the original source population.
+
 `MEMORY_MODE = "auto"` estimates memory for transformed, standardized, PCA working, and retained-score arrays and compares it with a configurable fraction of available RAM. Full-data scaling and PCA remain the preferred path for ordinary datasets around 300,000 rows with a modest feature count. Incremental scaling and IncrementalPCA are selected only when the estimate exceeds the safety allowance, or when explicitly requested. Incremental transformed scores are divided by the square roots of IncrementalPCA explained variances exactly as in full mode.
 
 Average relative prediction variance is evaluated in chunks. Plotting uses a reproducible display subset only and does not alter the analysis population. An optional disabled 300,000-row synthetic stress test reports elapsed time and major-array memory.
 
 The Colab notebook provides a sequential workflow modeled on the AJ notebook rather than a single configuration panel. Separate cells handle one complete survey-file upload, existing-location entry, dataframe preview, coordinate-system declaration and optional UTM conversion, ID selection, X/Y assignment and geographic preview, multi-select PCA features, per-feature transformations, PCA component selection, outlier and design-radius controls, sample budget, candidate settings, optimizer starts, memory mode, approximation permission, and plot colors. File transfer uses Colab's native `google.colab.files.upload()` call directly in the executed cell, avoiding background widget callbacks. Colab supplies its own upload progress and cancel control; after transfer the notebook prints filename, size, parsing status, dimensions, and a dataframe preview. Synthetic data and an existing Colab file path remain explicit alternatives. Applying the final workflow cell updates the same recorded configuration object used by scripted runs; the statistical engine is not duplicated.
+
+Widget groups use responsive CSS grids with automatic wrapping and natural-width description labels. Controls therefore move to additional rows when the Colab output pane is narrow instead of truncating parameter names. Long labels may wrap to multiple lines without changing the underlying setting.
 
 Decimal-degree conversion uses `pyproj` with WGS84 as the source CRS. The UTM zone and hemisphere can be selected manually or derived from the survey centroid. Original longitude/latitude columns are retained, projected easting/northing columns are added, and the EPSG code is recorded in run metadata. Geographic distance calculations still require the projected columns to be selected explicitly.
 
