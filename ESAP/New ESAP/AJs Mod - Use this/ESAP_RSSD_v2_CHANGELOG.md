@@ -178,7 +178,7 @@ This document compares `Sensor_Directed_Sampling.ipynb`, `AJ_Copy_of_Sensor_Dire
 
 **Problem:** Although reproducible, that interface made exploratory NDVI/NDRE workflows unnecessarily cumbersome and hid useful data-validation choices from non-programmatic users.
 
-**New behavior:** A four-tab `ipywidgets` panel now supports CSV/Excel upload or path loading, dataframe and missing-value preview, ID/X/Y assignment, multi-select PCA features, explicit per-feature transformations, sample and design controls, candidate/optimizer controls, memory settings, and plot colors. Clicking **Apply configuration** updates the same dataclass consumed by the downstream analysis.
+**New behavior:** A numbered, cell-by-cell `ipywidgets` workflow now supports primary and optional secondary CSV/Excel upload, cancel/reset buttons, dataframe and missing-value preview, optional existing locations, coordinate conversion, ID/X/Y assignment, geographic preview, multi-select PCA features, explicit per-feature transformations, PCA and design previews, sample controls, candidate/optimizer controls, memory settings, and plot colors. The last workflow cell finalizes the same dataclass consumed by the downstream analysis.
 
 **Statistical or computational rationale:** Interactivity is restored at the input and presentation layers without restoring the legacy weighted objective, unwhitened PCA, Moran selection, or combinatorial search.
 
@@ -191,3 +191,33 @@ This document compares `Sensor_Directed_Sampling.ipynb`, `AJ_Copy_of_Sensor_Dire
 **New behavior:** One-PC quadratic CCD construction, plots, validation, optimization, diagnostics, and exports are supported. With two center replicates, the base design contains six targets: two instances at each outer level and two at the center.
 
 **Statistical or computational rationale:** This provides the traditional six-site one-variable response-surface structure while preserving exact geoMSD optimization and unique field locations. For multiple PCs, the full-CCD minimum remains dimension-dependent rather than arbitrarily bypassed.
+
+## 20. Decimal-degree to UTM conversion added
+
+**Old behavior:** The AJ workflow displayed a UTM zone selector but did not integrate a general, validated conversion into the RSSD analysis. A separate helper script was hard-coded to UTM zone 13N and local filenames.
+
+**Problem:** geoMSD in decimal degrees is not a defensible linear-distance criterion, while a hard-coded zone is not portable.
+
+**New behavior:** The sequential workflow can transform selected WGS84 longitude/latitude columns with automatic centroid-based or manual UTM zone/hemisphere selection. It retains source coordinates, adds easting/northing, transforms entered existing locations consistently, and records the EPSG code.
+
+**Statistical or computational rationale:** Exact geoMSD must be computed in projected linear units. Zone choice is explicit and no region-specific CRS is silently imposed.
+
+## 21. Existing-location handling implemented
+
+**Old behavior:** The AJ notebook accepted preferred coordinates and attempted to infer PC values through kriging before modifying candidate structures.
+
+**Problem:** That path added kriging assumptions, could obscure whether sites were actually forced, and was not integrated with unique assignment.
+
+**New behavior:** Entered locations are matched to unique eligible survey observations. Users choose ignore, evaluate/overlay, or force mode. Forced matches are assigned to target instances by minimum PCA distance, represented by singleton candidate pools, and remain locked during coordinate exchange. Matches and offsets are exported in metadata and selected-site flags.
+
+**Statistical or computational rationale:** Existing sites are incorporated transparently without using kriged PC scores or weakening uniqueness checks. Any loss of response-surface fidelity remains visible in diagnostics.
+
+## 22. Geographic previews and comparison boxplots restored
+
+**Old behavior:** The first v2 rebuild produced final figures but omitted the staged geographic preview and familiar selected-versus-whole boxplot workflow.
+
+**Problem:** Users could not visually catch coordinate-column mistakes early or compare the final calibration subset with the survey distribution in the familiar interface.
+
+**New behavior:** An interactive geographic preview appears immediately after X/Y selection. Final output includes labeled selected-site maps plus side-by-side boxplots for standardized PCs and original sensor features.
+
+**Statistical or computational rationale:** These plots improve quality control and interpretation while remaining diagnostics rather than optimization objectives.

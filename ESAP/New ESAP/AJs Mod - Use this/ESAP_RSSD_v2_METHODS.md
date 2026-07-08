@@ -129,7 +129,9 @@ The complete valid dataset is used by default. `float32` arrays store transforme
 
 Average relative prediction variance is evaluated in chunks. Plotting uses a reproducible display subset only and does not alter the analysis population. An optional disabled 300,000-row synthetic stress test reports elapsed time and major-array memory.
 
-The Colab notebook also provides an `ipywidgets` guided setup panel. File upload and path input, dataframe preview, role-column assignment, multi-select PCA features, per-feature transformations, design-PC count, sample budget, design coverage, outlier coverage, candidate settings, optimizer starts, memory mode, approximation permission, and plot colors are exposed interactively. Applying the panel updates the same recorded configuration object used by scripted runs; the statistical engine is not duplicated.
+The Colab notebook provides a sequential `ipywidgets` workflow modeled on the AJ notebook rather than a single configuration panel. Separate cells handle primary and optional secondary file upload, upload cancellation/reset, existing-location entry, dataframe preview, coordinate-system declaration and optional UTM conversion, ID selection, X/Y assignment and geographic preview, multi-select PCA features, per-feature transformations, PCA component selection, outlier and design-radius controls, sample budget, candidate settings, optimizer starts, memory mode, approximation permission, and plot colors. Applying the final workflow cell updates the same recorded configuration object used by scripted runs; the statistical engine is not duplicated.
+
+Decimal-degree conversion uses `pyproj` with WGS84 as the source CRS. The UTM zone and hemisphere can be selected manually or derived from the survey centroid. Original longitude/latitude columns are retained, projected easting/northing columns are added, and the EPSG code is recorded in run metadata. Geographic distance calculations still require the projected columns to be selected explicitly.
 
 ## 15. Optional approximate PCA-space prefilter
 
@@ -164,6 +166,8 @@ Population rows are processed in chunks; no *N* by *N* hat matrix is created. If
 The design is model-based and directed. Selected sites are not, by themselves, a probability sample supporting unbiased design-based population estimates. Results depend on chosen features, transformations, retained PC count, design coverage, candidate tolerance, and sample budget. A full CCD can become inefficient in higher dimensions, and four-PC support should not be interpreted as a universal recommendation.
 
 Coordinate exchange can converge to a local optimum; multiple starts reduce but do not eliminate that risk. Candidate restrictions trade exact target matching against possible spatial separation. Residual independence remains an empirical property of the future fitted model and must be checked after response collection.
+
+Optional existing locations are matched to the nearest unique eligible survey observations. In evaluate-only mode they are overlaid and reported but do not constrain selection. In force mode they are assigned to response-surface targets by minimum PCA mismatch and locked during coordinate exchange. Forced sites can weaken target matching, geoMSD, matrix conditioning, or prediction-variance diagnostics; these effects must be reviewed rather than assumed acceptable.
 
 ## 19. Differences from classical ESAP software
 
