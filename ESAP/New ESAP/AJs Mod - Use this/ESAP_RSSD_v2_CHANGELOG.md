@@ -222,15 +222,15 @@ This document compares `Sensor_Directed_Sampling.ipynb`, `AJ_Copy_of_Sensor_Dire
 
 **Statistical or computational rationale:** These plots improve quality control and interpretation while remaining diagnostics rather than optimization objectives.
 
-## 23. Upload status, progress milestones, and native fallback added
+## 23. Callback uploader replaced with one-file native Colab upload
 
-**Old behavior:** Selecting a file changed the widget state silently, and parsing occurred inside a button callback without a persistent status indicator. Browser-specific widget failures could therefore look like a stalled notebook.
+**Old behavior:** A `FileUpload` widget and separate load button depended on Python callbacks. In some Colab sessions the browser displayed a selected-file count but neither the selection observer nor the load-button callback reached the kernel.
 
-**Problem:** Users could not distinguish an unselected file, a completed browser transfer, dataframe parsing, a successful load, or a load error.
+**Problem:** The interface appeared to accept a file while the Python dataframe remained unset. Adding a callback-driven progress bar could not solve a callback transport failure. The optional second file also added state without a defined role in RSSD.
 
-**New behavior:** File selection immediately reports filename and size. A visible progress widget marks receipt, parsing, validation, success, and failure; successful loads report row/column counts and display a preview. A separate direct Colab upload cell is available when widget callbacks do not respond.
+**New behavior:** Running the upload cell directly calls `google.colab.files.upload()` and accepts exactly one complete survey file. Colab's native interface supplies file selection, byte-level progress, and cancellation. The notebook then prints transfer completion, filename, size, parsing state, row/column counts, and a preview. Synthetic demonstration and existing-path modes are selected through Colab form parameters. The second-file feature and callback loader are removed.
 
-**Statistical or computational rationale:** This change does not affect analysis but makes the provenance and state of the actual input dataframe observable before configuration begins. The progress bar is milestone-based because the standard widget does not expose byte-level streaming progress to Python.
+**Statistical or computational rationale:** This change does not affect analysis but makes file receipt synchronous and observable before configuration begins. It uses the same native mechanism as the working AJ notebook and eliminates ambiguous frontend-only widget state.
 
 ## 24. Two-dimensional response-surface preview clarified
 
