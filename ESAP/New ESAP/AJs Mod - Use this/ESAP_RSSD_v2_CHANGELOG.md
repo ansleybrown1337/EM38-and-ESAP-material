@@ -271,3 +271,13 @@ This document compares `Sensor_Directed_Sampling.ipynb`, `AJ_Copy_of_Sensor_Dire
 **New behavior:** Crowded controls use responsive grid layouts that automatically wrap according to available width. Description widths are set to their natural content size, and a small CSS rule permits long labels to wrap instead of being clipped.
 
 **Statistical or computational rationale:** This is a presentation-only change that improves parameter transparency without modifying saved values or analysis behavior.
+
+## 28. Labeled Google Earth KMZ export added
+
+**Old behavior:** Selected sites were exported as CSV rows and projected-coordinate figures, requiring a separate conversion and placemark-building step before viewing them in Google Earth.
+
+**Problem:** Field and manuscript workflows benefit from an immediately portable map layer, but a valid Google Earth layer cannot be generated unless the source projected coordinate reference system is known.
+
+**New behavior:** Every successful run now writes `ESAP_RSSD_selected_sites.kmz` when a source EPSG is available. UTM conversion supplies that EPSG automatically; already-projected input has a new EPSG entry control. The KMZ transforms sites to WGS84, labels each placemark with sample order and sample ID, includes run-relevant site details in the popup, records export metadata, and is copied into the complete run ZIP.
+
+**Statistical or computational rationale:** CRS-aware transformation prevents projected easting/northing values from being misinterpreted as longitude/latitude. The KMZ is an output representation only and does not alter RSSD selection or distance calculations.
