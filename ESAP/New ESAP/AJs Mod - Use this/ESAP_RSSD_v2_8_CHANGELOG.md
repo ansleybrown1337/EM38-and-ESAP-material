@@ -1,4 +1,4 @@
-# ESAP RSSD v2.8 changelog
+﻿# ESAP RSSD v2.8 changelog
 
 This document compares `Sensor_Directed_Sampling.ipynb`, `AJ_Copy_of_Sensor_Directed_Sampling.ipynb`, `ESAP_RSSD_v2_scalable.ipynb`, and `ESAP_RSSD_v2_8_scalable.ipynb`. Entries 1-28 are retained from the v2 modernization history. Entries 29 onward describe the v2.8 revision. Each entry describes implemented behavior, not planned functionality.
 
@@ -168,7 +168,7 @@ This document compares `Sensor_Directed_Sampling.ipynb`, `AJ_Copy_of_Sensor_Dire
 
 **Problem:** Data reduction could silently discard response-surface tails or rare conditions.
 
-**New behavior:** Full-data analysis is the default. Auto memory estimation can select IncrementalPCA. A separately gated PCA-occupancy prefilter preserves strata, tails, and target neighborhoods and marks every approximate run. A disabled 300,000-row stress test reports memory and runtime.
+**New behavior:** Full-data analysis is the default. Auto memory estimation can select IncrementalPCA. A separately gated PCA-occupancy prefilter preserves strata, tails, and target neighborhoods and marks every approximate run.
 
 **Statistical or computational rationale:** Efficient algorithms are the first defense. Any approximation that changes candidate discovery is explicit and separately validatable.
 
@@ -256,7 +256,7 @@ This document compares `Sensor_Directed_Sampling.ipynb`, `AJ_Copy_of_Sensor_Dire
 
 **Old behavior:** All finite uploaded sensor readings entered transformation, PCA, and statistical outlier screening. Removing known invalid measurements required editing the source file or notebook code.
 
-**Problem:** Physically invalid values—such as negative EMI spikes over metal or vegetation-index values known to represent concrete or bare infrastructure—are domain exclusions, not statistical outliers. They can also invalidate later log transformations.
+**Problem:** Physically invalid valuesâ€”such as negative EMI spikes over metal or vegetation-index values known to represent concrete or bare infrastructureâ€”are domain exclusions, not statistical outliers. They can also invalidate later log transformations.
 
 **New behavior:** A dedicated pre-PCA cell supports multiple interactive column rules with optional lower/upper bounds, inclusive/exclusive comparisons, and nonfinite handling. It previews retained/dropped counts and sampled distributions before an explicit apply action. Applied rules use AND logic, alter only the working dataframe, and are recorded in metadata, the run summary, and JSON/CSV files in the ZIP bundle.
 
@@ -341,3 +341,4 @@ This document compares `Sensor_Directed_Sampling.ipynb`, `AJ_Copy_of_Sensor_Dire
 **New behavior:** The final workflow cell now exposes maximum starts, minimum starts, no-improvement patience, stable early stopping, optional reproducibility rerun, and the proxy spacing diagnostic toggle. The final applied-settings table records those choices before the analysis cells are run.
 
 **Statistical or computational rationale:** Scientist-facing controls remain explicit and recorded while the numerical RSSD engine remains centralized in the same configuration object.
+

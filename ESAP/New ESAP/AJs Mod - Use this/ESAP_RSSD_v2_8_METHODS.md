@@ -1,4 +1,4 @@
-# ESAP RSSD v2.8: scalable response-surface sampling methods
+﻿# ESAP RSSD v2.8: scalable response-surface sampling methods
 
 ## 1. Purpose and scope
 
@@ -166,9 +166,9 @@ The complete valid dataset is used by default. `float32` arrays store transforme
 
 Raw-data range filtering is vectorized and stores an O(*N*) Boolean mask rather than pairwise structures. Diagnostic histograms use at most the configured display sample, even for million-row inputs. Applying a filter creates the retained working dataframe and releases the excluded working rows; rerunning the upload cell is required to restore the original source population.
 
-`MEMORY_MODE = "auto"` estimates memory for transformed, standardized, PCA working, and retained-score arrays and compares it with a configurable fraction of available RAM. Full-data scaling and PCA remain the preferred path for ordinary datasets around 300,000 rows with a modest feature count. Incremental scaling and IncrementalPCA are selected only when the estimate exceeds the safety allowance, or when explicitly requested. Incremental transformed scores are divided by the square roots of IncrementalPCA explained variances exactly as in full mode.
+`MEMORY_MODE = "auto"` estimates memory for transformed, standardized, PCA working, and retained-score arrays and compares it with a configurable fraction of available RAM. Full-data scaling and PCA remain the preferred path for ordinary datasets with a modest feature count when the memory estimate fits within the configured safe RAM allowance. Incremental scaling and IncrementalPCA are selected only when the estimate exceeds the safety allowance, or when explicitly requested. Incremental transformed scores are divided by the square roots of IncrementalPCA explained variances exactly as in full mode.
 
-Average relative prediction variance is evaluated in chunks. Plotting and the proxy spacing screen use reproducible bounded subsets only and do not alter the analysis population. An optional disabled 300,000-row synthetic stress test reports elapsed time and major-array memory.
+Average relative prediction variance is evaluated in chunks. Plotting and the proxy spacing screen use reproducible bounded subsets only and do not alter the analysis population.
 
 The Colab notebook provides a sequential workflow modeled on the AJ notebook rather than a single configuration panel. Separate cells handle one complete survey-file upload, existing-location entry, dataframe preview, coordinate-system declaration and optional UTM conversion, ID selection, X/Y assignment and geographic preview, multi-select PCA features, per-feature transformations, PCA component selection, outlier and design-radius controls, sample budget, candidate settings, optimizer starts and early stopping, memory mode, approximation permission, spacing diagnostics, and plot colors. File transfer uses Colab's native `google.colab.files.upload()` call directly in the executed cell, avoiding background widget callbacks. Colab supplies its own upload progress and cancel control; after transfer the notebook prints filename, size, parsing status, dimensions, and a dataframe preview. Synthetic data and an existing Colab file path remain explicit alternatives. Applying the final workflow cell updates the same recorded configuration object used by scripted runs; the statistical engine is not duplicated.
 
@@ -238,3 +238,4 @@ Planned scientific validation should use common survey inputs and fixed response
 ## Reference
 
 Lesch, S. M. (2005). Sensor-directed response surface sampling designs for characterizing spatial variation in soil properties. *Computers and Electronics in Agriculture*, 46, 153-179. https://doi.org/10.1016/j.compag.2004.11.004
+
