@@ -21,7 +21,8 @@ Validation commands executed:
 - parsed every code cell with `ast.parse`;
 - executed the consolidated v2.9 engine initialization cell;
 - executed embedded unit validations for exact geoMSD, standardized PCA scores, exact SBAD, cached SBAD swap evaluation, sample-budget allocation, and nested support-sequence construction;
-- executed a reduced synthetic end-to-end run with 800 rows, 20 requested samples, 18 response-surface sites, and 2 spatial support sites.
+- executed a reduced synthetic end-to-end run with 800 rows, 20 requested samples, 18 response-surface sites, and 2 spatial support sites;
+- executed a second reduced synthetic run and saved the restored/new figure set to a temporary directory.
 
 Reduced synthetic run result:
 
@@ -34,6 +35,7 @@ Reduced synthetic run result:
 - field-coverage-distance table written;
 - proxy spatial-scale table written;
 - metadata and run summary written.
+- 11 live/bundle figures generated successfully.
 
 The reduced run reached maximum test support resolution without stability, which correctly produced an explicit warning and `ad_support_resolution_stable = False`.
 
@@ -49,6 +51,7 @@ The reduced run reached maximum test support resolution without stability, which
 - updated `ESAP_RSSD_selected_sites.csv` with `sample_role`
 - updated KMZ description logic with response-surface versus spatial-support labels
 - updated bundle cell to include v2.9 tables
+- restored live figure output and bundle PNG export for maps, response-surface target matches, PC and feature boxplots, nearest-neighbor distances, optimizer traces, proxy spatial-scale diagnostics, and SBAD-specific coverage diagnostics
 
 ## Important implementation notes
 
@@ -138,10 +141,10 @@ Existing-location workflow state is preserved. Force-mode behavior should be rev
 | 70 | No raster reshape. | PASS | No raster topology assumption. |
 | 71 | No fixed pixel-offset spatial correlation. | PASS | Pair distances from coordinates. |
 | 72 | No FFT raster autocorrelation. | PASS | Not used. |
-| 73 | Keep disabled 300,000-row stress test. | PASS | Disabled scaling stress-test cell includes 300,000-row option. |
-| 74 | Add disabled 2-million-row stress test. | PASS | Disabled scaling stress-test cell includes 2,000,000-row option. |
+| 73 | Keep disabled 300,000-row stress test. | REMOVED | Removed from v2.9 at user request after initial implementation. |
+| 74 | Add disabled 2-million-row stress test. | REMOVED | Removed from v2.9 at user request after initial implementation. |
 | 75 | Report runtimes and major memory. | PASS | Metadata has stage runtimes and PCA memory report. |
-| 76 | Stress test reports required fields. | PASS | Disabled stress-test cell reports PCA mode, support timing/size, K stages/final K, starts, support sites, runtime, and memory estimate. |
+| 76 | Stress test reports required fields. | REMOVED | Stress-test code was removed from the notebook at user request. |
 | 77 | Methods describes actual code. | PASS | See Methods limitations. |
 | 78 | Changelog describes actual changes. | PASS | See v2.9 changelog. |
 | 79 | Implementation report lists every acceptance test. | PASS | This matrix. |

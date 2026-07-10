@@ -178,7 +178,7 @@ This changelog compares `ESAP_RSSD_v2_8_scalable.ipynb` with `ESAP_RSSD_v2_9_sca
 
 **Problem:** SBAD and support-site decisions needed auditable tables.
 
-**New behavior:** v2.9 adds support sequence, support-resolution, candidate-saturation, optimizer-stability, spatial-support-site, field-coverage-distance, and proxy-scale outputs.
+**New behavior:** v2.9 adds support sequence, support-resolution, candidate-saturation, optimizer-stability, spatial-support-site, field-coverage-distance, and proxy-scale outputs. The notebook also restores live figure output and bundle PNG export for final maps, candidate maps, response-surface target matches, PC and feature boxplots, nearest-neighbor distances, optimizer traces, proxy spatial scale, SBAD support-resolution diagnostics, coverage-distance distributions, and support-site SBAD reductions.
 
 **Statistical or computational rationale:** The new design decisions are reproducible outside the live notebook.
 
